@@ -1,7 +1,7 @@
-let mtk = 100;
+let mtk = 69;
 let bahasaIndonesia = 70;
-let bahasaInggris = 80;
-let ipa = 88;
+let bahasaInggris = 69;
+let ipa = 69;
 
 let isError = false;
 const temp = [mtk, bahasaIndonesia, bahasaInggris, ipa];
@@ -15,7 +15,8 @@ for(let i = 0; i < temp.length; i++) {
 if(isError) {
   console.log(`Pastikan semua field terisi, dan bertipe data 'number' (1 - 100)`);
 } else {
-  const rataRata = (mtk + bahasaIndonesia + bahasaInggris + ipa) / 4;
+  let rataRata = (mtk + bahasaIndonesia + bahasaInggris + ipa) / 4;
+  // rataRata = Math.ceil(rataRata);
   if(rataRata < 60) {
     console.log(`Rata-Rata: ${rataRata}, Grade: E`)
   } else if(rataRata < 70) {

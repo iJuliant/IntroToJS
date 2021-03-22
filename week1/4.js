@@ -24,5 +24,6 @@ data = {
 // 2.
 const {street, city} = data.address;
 
+console.log(data)
 console.log(`Street: ${street},
 City: ${city}`)
