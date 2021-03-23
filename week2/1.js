@@ -24,8 +24,8 @@ greet = greet.replace('Indonesia', 'Uluwatu');
 console.log(`6. ${greet}`);
 
 // 7. Includes
-const name = 'Sadio Mane';
-console.log(`7. includes: ${name.includes('adi')}`); //true
+const name = 'Spain';
+console.log(`7. includes: ${name.includes('pain')}`); //true
 
 // 8. Map
 let arr = ['Jack', 'Jaqueline', 'Jason', 'Rahmat'];

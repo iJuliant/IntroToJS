@@ -8,7 +8,7 @@ let searchName = function(key, limit, callback) {
     let temp = [];
     for(let i in names) {
       if(limit > temp.length) {
-        if(names[i].toLowerCase().includes(key, 0)) {
+        if(names[i].toLowerCase().includes(key.toLowerCase(), 0)) {
           temp.push(names[i])
         }
       }
@@ -29,4 +29,4 @@ let showResult = function(key, result) {
 }
 
 
-searchName('a', 3, showResult)
+searchName('Rolyn', 3, showResult)
