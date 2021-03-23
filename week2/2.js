@@ -1,5 +1,5 @@
 let names = ["Abigail", "Alexandra", "Alison", "Amanda", "Angela", "Bela", "Carol", 
-"Carolyn", "Deidre", "Diana", "Elizabeth", "Ella", "Faith", "Olivia", "Penelope"]
+  "Carolyn", "Deidre", "Diana", "Elizabeth", "Ella", "Faith", "Olivia", "Penelope"]
 
 let searchName = function(key, limit, callback) {
   if(typeof key != 'string' || typeof limit != 'number') {
@@ -29,4 +29,4 @@ let showResult = function(key, result) {
 }
 
 
-searchName('Rolyn', 3, showResult)
+searchName('an', 10, showResult)
