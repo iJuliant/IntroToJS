@@ -6,20 +6,20 @@ let searchName = (key, limit, callback) => {
   if(!isValid) {
     return `Opps! You can only use string to define key & number to define limits.`
   } else {
-    let temp = [];
+    let result = [];
     for(let i in names) {
-      if(limit > temp.length) {
+      if(limit > result.length) {
         if(names[i].toLowerCase().includes(key.toLowerCase(), 0)) {
-          temp.push(names[i])
+          result.push(names[i])
         }
       }
     }
-    if(temp.length === 0) {
+    if(result.length === 0) {
       return `Key '${key}' doesn't match with any data, try another key!`
-    } else if(temp.length === 1) {
-      return `There is '${temp}' mathces with key '${key}'`
+    } else if(result.length === 1) {
+      return `There is '${result}' mathces with key '${key}'`
     } else {
-      return `There are '${temp} match with key '${key}'`
+      return `There are '${result} match with key '${key}'`
     }
   }
 }
