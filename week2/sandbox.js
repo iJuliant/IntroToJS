@@ -12,7 +12,13 @@ let searchName = (key, limit, callback) => {
         }
       }
     }
-    return temp;
+    if(temp.length === 0) {
+      return `Key ${key} doesn't match with any data, try another key!`
+    } else if(temp.length === 1) {
+      return `There is '${temp}' mathces with key '${key}'`
+    } else {
+      return `There are '${temp} match with key '${key}'`
+    }
   }
 }
 
@@ -24,4 +30,4 @@ const validator = (key, limit) => {
   }
 }
 
-console.log(searchName('ab', 3, validator));
+console.log(searchName('ab', 10, validator));
