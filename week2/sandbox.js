@@ -1,9 +1,10 @@
 let names = ["Abigail", "Alexandra", "Alison", "Amanda", "Angela", "Bela", "Carol", 
   "Carolyn", "Deidre", "Diana", "Elizabeth", "Ella", "Faith", "Olivia", "Penelope"]
 
-let searchName = (key, limit, callback) => {
-  const isValid = callback(key, limit);
-  if(isValid) {
+let searchName = function(key, limit, callback) {
+  if(typeof key != 'string' || typeof limit != 'number') {
+    return console.log(`Pastikan key dan limit terisi dengan benar`);
+  } else {
     let temp = [];
     for(let i in names) {
       if(limit > temp.length) {
@@ -12,22 +13,20 @@ let searchName = (key, limit, callback) => {
         }
       }
     }
-    if(temp.length === 0) {
-      return `Key ${key} doesn't match with any data, try another key!`
-    } else if(temp.length === 1) {
-      return `There is '${temp}' mathces with key '${key}'`
-    } else {
-      return `There are '${temp} match with key '${key}'`
-    }
+    callback(key, temp);
+    return temp;
   }
 }
 
-const validator = (key, limit) => {
-  if(typeof key !== 'string' || typeof limit !== 'number') {
-    return false;
+let showResult = function(key, result) {
+  if(result.length === 0) {
+    console.log(`Key '${key}' doesn't match with any data, Try another key!`);
+  } else if(result.length === 1) {
+    console.log(`Found 1 data, it is ${result}`);
   } else {
-    return true;
+    console.log(`Found ${result.length} data, there are ${result}`);
   }
 }
 
-console.log(searchName('ab', 10, validator));
+
+searchName('an', 10, showResult)
