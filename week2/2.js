@@ -34,3 +34,4 @@ const validator = (key, limit) => {
 
 console.log(searchName('abi', 5, validator));
 console.log(searchName('an', 3, validator));
+console.log(searchName('ali', 3, validator));

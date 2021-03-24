@@ -1,32 +1,29 @@
 let names = ["Abigail", "Alexandra", "Alison", "Amanda", "Angela", "Bela", "Carol", 
-  "Carolyn", "Deidre", "Diana", "Elizabeth", "Ella", "Faith", "Olivia", "Penelope"]
+  "Carolyn", "Deidre", "Diana", "Elizabeth", "Ella", "Faith", "Olivia", "Penelope"];
 
-let searchName = function(key, limit, callback) {
-  if(typeof key != 'string' || typeof limit != 'number') {
-    return console.log(`Pastikan key dan limit terisi dengan benar`);
-  } else {
-    let temp = [];
-    for(let i in names) {
-      if(limit > temp.length) {
-        if(names[i].toLowerCase().includes(key.toLowerCase(), 0)) {
-          temp.push(names[i])
-        }
-      }
+let simpler = (key, limit, callback) => {
+  let isValid = callback(key, limit);
+  if(isValid) {
+    let match = names.filter((el, i) => el.toLowerCase().includes(key.toLowerCase()));
+    match = match.slice(0, limit)
+    if(match.length === 0) {
+      return `There's no data matches with key '${key}'`
+    } else if(match.length === 1) {
+      return `There's '${match}', matches with key '${key}'`
+    } else {
+      return `There are '${match}', match with key '${key}'`
     }
-    callback(key, temp);
-    return temp;
-  }
-}
-
-let showResult = function(key, result) {
-  if(result.length === 0) {
-    console.log(`Key '${key}' doesn't match with any data, Try another key!`);
-  } else if(result.length === 1) {
-    console.log(`Found 1 data, it is ${result}`);
   } else {
-    console.log(`Found ${result.length} data, there are ${result}`);
+    return `Key can only contains string, and limit can only contains number`;
   }
 }
 
+const validator = (key, limit) => {
+  if(typeof key !== 'string' || typeof limit !== 'number') {
+    return false;
+  } else {
+    return true;
+  }
+}
 
-searchName('an', 10, showResult)
+console.log(simpler('an', 3, validator));
