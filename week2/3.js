@@ -3,8 +3,10 @@ const seleksiNilai = (awal, akhir, nilai) => {
     return console.log(`Pastikan nilai, nilai awal dan nilai akhir terisi dengan benar`)
   } else if(awal > akhir) {
     return console.log(`Nilai akhir harus lebih besar dari nilai awal`);
+  } else if(nilai.length < 5) {
+    return console.log('Pastikan nilai yang di input lebih dari 5 data');
   } else {
-    let temp = []
+    let temp = [];
     for(let i in nilai) {
       if(nilai[i] >= awal && nilai[i] <= akhir) {
         temp.push(nilai[i]);
