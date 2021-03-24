@@ -35,7 +35,7 @@ const name = 'Spain';
 console.log(`7. includes: ${name.includes('pain')}`); //true
 
 // 8. Map
-// Mengakses dan menambahkan nilai ke masing masing index dalam array
+// Mengakses dan melakukan operasi ke masing masing index dalam array
 let arr = ['Jack', 'Jaqueline', 'Jason', 'Rahmat'];
 const arrMap = arr.map(el => el += ' ehehehe');
 console.log(`8. ${arrMap}`);
