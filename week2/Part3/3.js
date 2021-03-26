@@ -15,27 +15,33 @@
 //   .then((result) => { console.log(`${result} adalah ganjil`)})
 //   .catch((error) => {console.log(error);})
 
-function cek(num) {
+const emailVerificator = (email, callback) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      let result = num % 2;
-      if(result !== 0) {
-        resolve(`${num} adalah ganjil`)
+      let idxat;
+      let idxdot;
+      for(i in email) {
+        if(email[i] === '@') {
+          idxat = i;
+        } else if(email[i] === '.') {
+          idxdot = i;
+        }
+      }
+      let provider = callback(email, idxat, idxdot);
+      if(idxat && idxdot) {
+        resolve(`Ini adalah email dari ${provider}`)        
       } else {
-        reject(new Error(`${num} bukan bilangan ganjil`))
+        reject(new Error(`Ini bukan email`))
       }
     }, 3000)
   })
 }
 
-async function cekGanjil(num) {
-  try {
-    console.log(`checking ...`);
-    const result = await cek(num);
-    console.log(result);  
-  } catch(error) {
-    console.log(error);
-  }
-}
+const providerCheck = (email, at, dot) => {
+  let provider = email.substring(at, dot)
+  return provider;
+} 
 
-cekGanjil(6)
+emailVerificator('dubois@rocketmail.com', providerCheck) 
+  .then((result) => { console.log(result)})
+  .catch((error) => { console.log(error);})
