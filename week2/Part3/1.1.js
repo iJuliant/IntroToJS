@@ -12,7 +12,7 @@ const cekHariKerja = (day) => {
   })
 }
 
-cekHariKerja('rabu')  
+cekHariKerja('sabtu')  
 .then((result) => { console.log(`Ditemukan ${result} sebagai hari kerja`)})
 .catch((error) => { console.log(error)})
 

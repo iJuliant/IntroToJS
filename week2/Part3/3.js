@@ -11,7 +11,7 @@
 //   })
 // }
 
-// cekGanjil(5) 
+// cekGanjil(2) 
 //   .then((result) => { console.log(`${result} adalah ganjil`)})
 //   .catch((error) => {console.log(error);})
 
@@ -29,9 +29,13 @@ function cek(num) {
 }
 
 async function cekGanjil(num) {
-  console.log(`checking ...`);
-  const result = await cek(num);
-  console.log(result);
+  try {
+    console.log(`checking ...`);
+    const result = await cek(num);
+    console.log(result);  
+  } catch(error) {
+    console.log(error);
+  }
 }
 
-cekGanjil(7)
+cekGanjil(6)

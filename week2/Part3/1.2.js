@@ -13,9 +13,13 @@ function cek(day) {
 }
 
 async function call(day) {
-  console.log(`checking ...`);
-  const result = await cek(day);
-  console.log(result);
+  try {
+    console.log(`checking ...`);
+    const result = await cek(day);
+    console.log(result);  
+  } catch(error) {
+    console.log(error);
+  }
 }
 
-call('senin')
+call('sabtu')
